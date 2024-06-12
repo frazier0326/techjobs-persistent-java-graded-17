@@ -2,20 +2,14 @@ package org.launchcode.techjobs.persistent.models;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
-import java.util.List;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Job {
+public class Job extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private int id;
+    @ManyToOne
+    private Employer employer;
 
-    private String name;
-    private String employer;
     private String skills;
 
 
@@ -23,27 +17,23 @@ public class Job {
     }
 
     // Initialize the id and value fields.
-    public Job(String anEmployer, String someSkills) {
-        super();
-        this.employer = anEmployer;
-        this.skills = someSkills;
-    }
+//    public Job(String anEmployer, String someSkills) {
+//        super();
+//        this.employer = anEmployer;
+//        this.skills = someSkills;
+//    }
 
-    // Getters and setters.
-    
-    public String getName() {
-        return name;
+    public Job(Employer employer, String skills) {
+        this.employer = employer;
+        this.skills = skills;
     }
+// Getters and setters.
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
@@ -54,5 +44,29 @@ public class Job {
     public void setSkills(String skills) {
         this.skills = skills;
     }
+
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getEmployer() {
+//        return employer;
+//    }
+//
+//    public void setEmployer(String employer) {
+//        this.employer = employer;
+//    }
+//
+//    public String getSkills() {
+//        return skills;
+//    }
+//
+//    public void setSkills(String skills) {
+//        this.skills = skills;
+//    }
 
 }
