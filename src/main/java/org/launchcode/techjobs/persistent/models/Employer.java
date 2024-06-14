@@ -20,11 +20,16 @@ public class Employer extends AbstractEntity {
     @OneToMany
 //            (mappedBy = "job", cascade = CascadeType.ALL)
     @JoinColumn(name="employer_id")
-    private final List<Job> jobs = new ArrayList<>();
+    private List<Job> jobs = new ArrayList<>();
 
+    public Employer() {}
 
     public String getLocation() {
         return location;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 
     public void setLocation(String location) {
@@ -35,7 +40,6 @@ public class Employer extends AbstractEntity {
         this.location = location;
     }
 
-    public Employer() {}
 
     public List<Job> getJobs() {
         return jobs;
